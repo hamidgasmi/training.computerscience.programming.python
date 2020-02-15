@@ -1,6 +1,6 @@
 # Python
 
-## Recursion:
+## General:
 
 <details>
 <summary>Recursion</summary>
@@ -21,5 +21,18 @@
   -     threading.stack_size(2**27)
 
 </details>
+
+## Data Structure:
+
+<details>
+<summary>Queue</summary>
+
+</details>
+
+<details>
+<summary>Stack</summary>
+
+</details>
+
   
  

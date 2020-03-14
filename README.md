@@ -21,10 +21,8 @@
   - Define `__init__` method as: 
   -     class MyClass():
           def __init__(self, *args, **kwargs):
-            if arg1 in kwargs:
-              self.attr1 = kwargs[arg1]
-            elif arg2 in kwargs:
-              self.attr2 = kwargs[arg2]
+            self.attr1 = kwargs.get('arg1',self.attr1)
+            self.attr2 = kwargs.get('arg2',self.attr2)
   - Instanciate `MyClass` with different arguments:
   -     c1 = MyClass(arg1=5)
         c2 = MyClass(arg2="5")

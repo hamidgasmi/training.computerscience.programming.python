@@ -18,11 +18,9 @@
 - Have multiple constructors?
   - Add a tuple of anonymous arguments: #args
   - Add a dictionary of named arguments: #kwargs
-  - Define __init__ method as: 
+  - Define `__init__` method as: 
   -     class MyClass():
           def __init__(self, *args, **kwargs):
-            #args -- tuple of anonymous arguments
-            #kwargs -- dictionary of named arguments
             if arg1 in kwargs:
               self.attr1 = kwargs[arg1]
             elif arg2 in kwargs:
@@ -30,7 +28,7 @@
   - Instanciate `MyClass` with different arguments:
   -     c1 = MyClass(arg1=5)
         c2 = MyClass(arg2="5")
-  - E.g., let's have the function f:
+  - E.g., let's define a function `f` as:
           def f(*args, **kwargs):
             print 'args: ', args, ' kwargs: ', kwargs
 

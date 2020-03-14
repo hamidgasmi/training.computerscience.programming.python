@@ -19,16 +19,17 @@
   - Add a tuple of anonymous arguments: #args
   - Add a dictionary of named arguments: #kwargs
   - Define `__init__` method as: 
-  -     class MyClass():
-          def __init__(self, *args, **kwargs):
-            self.attr1 = kwargs.get('arg1',self.attr1)
-            self.attr2 = kwargs.get('arg2',self.attr2)
+    -     class MyClass():
+            def __init__(self, *args, **kwargs):
+              self.attr1 = kwargs.get('arg1',self.attr1)
+              self.attr2 = kwargs.get('arg2',self.attr2)
   - Instanciate `MyClass` with different arguments:
-  -     c1 = MyClass(arg1=5)
-        c2 = MyClass(arg2="5")
-  - E.g., let's define a function `f` as:
+    -     c1 = MyClass(arg1=5)
+          c2 = MyClass(arg2="5")
+  - E.g., 
+    - let's define a function `f` as:
           def f(*args, **kwargs):
-            print 'args: ', args, ' kwargs: ', kwargs
+          print 'args: ', args, ' kwargs: ', kwargs
 
           >>> f('a')
           args:  ('a',)  kwargs:  {}

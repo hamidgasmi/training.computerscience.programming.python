@@ -28,9 +28,9 @@
           c2 = MyClass(arg2="5")
   - E.g., 
     - let's define a function `f` as:
-          def f(*args, **kwargs):
-          print 'args: ', args, ' kwargs: ', kwargs
-
+    -     def f(*args, **kwargs):
+            print 'args: ', args, ' kwargs: ', kwargs
+          
           >>> f('a')
           args:  ('a',)  kwargs:  {}
           >>> f(ar='a')

@@ -44,6 +44,7 @@
 <details>
 <summary>Thread</summary>
 
+- Library: threading
 - Launch a new thread:
   -     threading.Thread(target=worker).start()
 - Set the size of the thread stack:

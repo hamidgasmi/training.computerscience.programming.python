@@ -44,8 +44,9 @@
 <details>
 <summary>Strings</summary>
 
+- String object is immutable: each time a string is assigned to a variable a new object is created in memory to represent the new value
 - String concatenation:
-  - To use a list of characters to append to 
+  - To use a list of texts to append to 
   - To use join to convert the list to a string
   -     E.g. 1:
         ''.join(["char" for _ in range(2000)])
@@ -54,6 +55,7 @@
         for _ in range(2000):
           text_list.append("char")
         return ''.join(text_list)
+  - For more [details](https://waymoot.org/home/python_string/)
 
 </details>
 

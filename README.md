@@ -42,6 +42,22 @@
 </details>
 
 <details>
+<summary>Strings</summary>
+
+- String concatenation:
+  - To use a list of characters to append to 
+  - To use join to convert the list to a string
+  -     E.g. 1:
+        ''.join(["char" for _ in range(2000)])
+  -     E.g. 2:
+        text_list = []
+        for _ in range(2000):
+          text_list.append("char")
+        return ''.join(text_list)
+
+</details>
+
+<details>
 <summary>Thread</summary>
 
 - Library: threading

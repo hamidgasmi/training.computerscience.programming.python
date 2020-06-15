@@ -3,6 +3,17 @@
 ## General:
 
 <details>
+<summary>Setup</summary>
+
+- Installing Python 3.8
+
+- Make a python file executable:
+  - The 1st line of the python file should be: `#!/usr/bin/env python3.7`
+  - Run `chmod +x file_name.py`
+
+</details>
+
+<details>
 <summary>Recursion</summary>
 
 - Recursion depth default limit is rather low
@@ -44,7 +55,9 @@
 <details>
 <summary>Strings</summary>
 
-- String object is immutable: each time a string is assigned to a variable a new object is created in memory to represent the new value
+- String object is **immutable**: 
+  - An immutable object can't be changed
+  - Each time a string is assigned to a variable a new object is created in memory to represent the new value
 - String concatenation:
   - To use a list of texts to append to 
   - To use join to convert the list to a string
@@ -82,5 +95,5 @@
 
 </details>
 
-  
+## Coding Style:  
  

@@ -17,9 +17,12 @@
 <summary>Recursion</summary>
 
 - Recursion depth default limit is rather low
-- To raise it:
-  -     sys.setrecursionlimit(10**7)
+- To raise it: `sys.setrecursionlimit(10**7)`
 - To take advantage of bigger stack, we have to launch a new thread (see thread)
+- Python doesn't support **tail-call optimization**
+- For more details:
+    - Python doc [Set Recusion Limit](https://docs.python.org/3.7/library/sys.html#sys.getrecursionlimit)
+    - [Tail Recursion](https://chrispenner.ca/posts/python-tail-recursion)
 
 </details>
 

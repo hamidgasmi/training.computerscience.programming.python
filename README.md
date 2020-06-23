@@ -19,11 +19,6 @@
 </details>
 
 <details>
-<summary>Setup</summary>
-
-</details>
-
-<details>
 <summary>Recursion</summary>
 
 - Recursion depth default limit is rather low

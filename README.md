@@ -5,12 +5,21 @@
 <details>
 <summary>Setup</summary>
 
-- Installing Python 3.8
+- Installing Python 3.7:
 
 - Make a python file executable:
   - Set the process to interpret our scripts by setting a **shebang** at the top of the *.py* file: `#!/usr/bin/env python3.7`
   - In the terminal, run the command: `$ chmod +x file_name.py`
   - In the terminal, run our python code by: `$ .\fileName.py`
+- Adding scripts to our `$PATH`:
+  - Create a folder where reusable modules (scripts) are stored
+  - Add this folder to the $PATH in our `.bashrc`
+  - E.g. `export PATH=$PATH:$HOME/bin`
+
+</details>
+
+<details>
+<summary>Setup</summary>
 
 </details>
 

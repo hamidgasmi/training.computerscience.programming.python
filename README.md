@@ -8,7 +8,7 @@
 - Installing Python 3.8
 
 - Make a python file executable:
-  - The 1st line of the python file should be: `#!/usr/bin/env python3.7`
+  - Set the process to interpret our scripts by setting a **shebang** at the top of the *.py* file: `#!/usr/bin/env python3.7`
   - Run `chmod +x file_name.py`
 
 </details>

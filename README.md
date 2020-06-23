@@ -9,7 +9,8 @@
 
 - Make a python file executable:
   - Set the process to interpret our scripts by setting a **shebang** at the top of the *.py* file: `#!/usr/bin/env python3.7`
-  - Run `chmod +x file_name.py`
+  - In the terminal, run the command: `$ chmod +x file_name.py`
+  - In the terminal, run our python code by: `$ .\fileName.py`
 
 </details>
 

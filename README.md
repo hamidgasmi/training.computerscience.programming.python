@@ -40,11 +40,23 @@
   - Define `__init__` method as: 
     -     class MyClass():
             def __init__(self, *args, **kwargs):
-              self.attr1 = kwargs.get('arg1',self.attr1)
-              self.attr2 = kwargs.get('arg2',self.attr2)
+              default_value = -1
+              self.attr1 = kwargs.get('arg1', default_value)
+              self.attr2 = kwargs.get('arg2', default_value)
+  - Define `__repr__` method to represent the class' information
+    -     class MyClass():
+            def __init__(self, *args, **kwargs):
+              pass
+
+            def __repr__(self):
+              return (f"1st. attrubute is {self,attr1} "
+                     +f"2nd. attrubute is {self,attr2}")
+            
   - Instanciate `MyClass` with different arguments:
-    -     c1 = MyClass(arg1=5)
-          c2 = MyClass(arg2="5")
+    -     c1 = MyClass(arg1=1, arg2=2, arg3=3)
+          print("C1: ", c1) # C1: 1st. attribute is 1 2nd attribute is 2
+          c2 = MyClass(arg2="2")
+          print("C2: ", c2) # C2: 1st. attribute is None 2nd attribute is 2
   - E.g., 
     - let's define a function `f` as:
     -     def f(*args, **kwargs):
@@ -105,3 +117,31 @@
 
 ## Coding Style:  
  
+## Test:
+
+<details>
+<summary>Doctests</summary>
+
+- We could add **doctest** in the **docstring** of a function or method
+  -     class MyClass:
+          def __init(self, a, b):
+            self.val_1 = a
+            self.val_2 = b
+          
+          def val_addition(self)
+            """
+            The function description
+
+            doctest:
+            >>>instance = MyClass(1,2)
+            >>>instance.val_addition()
+            3
+            """
+
+            return self.val_1 + self.val_2
+  
+  - It's a best practice to add doctest within  a docstring
+    - What if we need more than 1 test case?
+    - Todo: To check for more details
+
+</details>

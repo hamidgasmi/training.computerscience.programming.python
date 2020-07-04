@@ -73,6 +73,24 @@
 </details>
 
 <details>
+<summary>Thread</summary>
+
+- Library: threading
+- Launch a new thread:
+  -     threading.Thread(target=worker).start()
+- Set the size of the thread stack:
+  -     threading.stack_size(2**27)
+
+</details>
+
+## Data Structure:
+
+<details>
+<summary>Bitwise</summary>
+
+</details>
+
+<details>
 <summary>Strings</summary>
 
 - String object is **immutable**: 
@@ -88,22 +106,11 @@
         for _ in range(2000):
           text_list.append("char")
         return ''.join(text_list)
-  - For more [details](https://waymoot.org/home/python_string/)
+  - For more details:
+    - [Efficient String Concatenation](https://waymoot.org/home/python_string/)
+    - Python [Documentation](https://docs.python.org/3/library/string.html#formatstrings)
 
 </details>
-
-<details>
-<summary>Thread</summary>
-
-- Library: threading
-- Launch a new thread:
-  -     threading.Thread(target=worker).start()
-- Set the size of the thread stack:
-  -     threading.stack_size(2**27)
-
-</details>
-
-## Data Structure:
 
 <details>
 <summary>Queue</summary>
@@ -115,8 +122,15 @@
 
 </details>
 
-## Coding Style:  
- 
+## Coding Style:
+
+<details>
+<summary>References</summary>
+
+- [Google Python Style Guide](http://google.github.io/styleguide/pyguide)
+
+</details>
+
 ## Test:
 
 <details>
@@ -139,7 +153,7 @@
             """
 
             return self.val_1 + self.val_2
-  
+  - To run the doctest: `python3.7 -m doctest -v my_class.py`
   - It's a best practice to add doctest within  a docstring
     - What if we need more than 1 test case?
     - Todo: To check for more details

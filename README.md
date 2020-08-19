@@ -138,7 +138,42 @@
           # data fields
           # instance methods
   ```
+- Example:
+  ```
+    class A:
+      def __init__(self, a, b):
+        self.__a = a # __a is private to the class A
+        self._b = b # __a is internal to the class A
 
+      def get_a(self):
+        return self.__a
+      
+      def method_1(self):
+        # abstract method
+        pass
+      
+  ```
+  ```
+    def B(A):
+      def __init__(self, a, b, c):
+        super.__init__(a, b)
+
+        self.c = c # public
+
+      def method_1(self):
+        # override method 1
+        return self.get_a() + self._b + self.c
+      
+  ```
+  - `isinstance()` method
+    ```
+      obj_a = A(1, 2)
+      isinstance(obj_a, A) # True
+
+      obj_a = B(1, 2)
+      isinstance(obj_a, B) # True
+
+    ```
 
 </details>
 
@@ -147,7 +182,34 @@
 <details>
 <summary>References</summary>
 
+- Naming style:
+  - Single Leading Underscore:
+    - `_attr` or `_method` 
+    - This attribute or method is intended for internal use
+  - Single Trailing Underscore:
+    - `var_`
+    - Sometimes the most fitting name for a variable is already taken by a keyword. 
+    - For example, names like `class` or `def` or `dict` can't be used as variable names
+    - In this case, we can break the naming confilct by adding a trailing underscor: `clss_` or `def_` or `dict_`
+  -  Single Underscore:
+    - `_`: it's sometimes used as a name to indicate that a variable is temporary or insignificant
+    ```
+      for _ in range(32):
+        print('Hello, World.')
+    ```
+  - Double Leading Underscore (***dunder*** prefix):
+    - `__attr` or `__method`
+    - It's also called ***name mangling***
+    - It causes the Python interpreter to rewrite the attribute name in order to avoid naming conflicts in subclasses
+    - It's used to implement a sort of weak privacy
+    - These attributes/methods **aren't accessible** outside out their class by `obj.__attr_name` or `obj.__attr_name`
+  - Double Leading and Trailing Underscore:
+    - `__var__`
+    - It indicates special methods defined by the Python language.
+    - Avoid this naming scheme for your own attributes.
+- [PEP 8 style](https://pep8.org)
 - [Google Python Style Guide](http://google.github.io/styleguide/pyguide)
+- [The Meaning of Underscores in Python](https://dbader.org/blog/meaning-of-underscores-in-python)
 
 </details>
 

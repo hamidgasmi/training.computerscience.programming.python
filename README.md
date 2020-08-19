@@ -207,15 +207,15 @@
   - `__var__`
   - It indicates special methods defined by the Python language.
   - Avoid this naming scheme for your own attributes.
+- [The Meaning of Underscores in Python](https://dbader.org/blog/meaning-of-underscores-in-python)
+
+</details>
 
 <details>
-
 <summary>References</summary>
 
-  
 - [PEP 8 style](https://pep8.org)
 - [Google Python Style Guide](http://google.github.io/styleguide/pyguide)
-- [The Meaning of Underscores in Python](https://dbader.org/blog/meaning-of-underscores-in-python)
 
 </details>
 

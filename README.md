@@ -32,47 +32,6 @@
 </details>
 
 <details>
-<summary>Class</summary>
-
-- Have multiple constructors?
-  - Add a tuple of anonymous arguments: #args
-  - Add a dictionary of named arguments: #kwargs
-  - Define `__init__` method as: 
-    -     class MyClass():
-            def __init__(self, *args, **kwargs):
-              default_value = -1
-              self.attr1 = kwargs.get('arg1', default_value)
-              self.attr2 = kwargs.get('arg2', default_value)
-  - Define `__repr__` method to represent the class' information
-    -     class MyClass():
-            def __init__(self, *args, **kwargs):
-              pass
-
-            def __repr__(self):
-              return (f"1st. attrubute is {self,attr1} "
-                     +f"2nd. attrubute is {self,attr2}")
-            
-  - Instanciate `MyClass` with different arguments:
-    -     c1 = MyClass(arg1=1, arg2=2, arg3=3)
-          print("C1: ", c1) # C1: 1st. attribute is 1 2nd attribute is 2
-          c2 = MyClass(arg2="2")
-          print("C2: ", c2) # C2: 1st. attribute is None 2nd attribute is 2
-  - E.g., 
-    - let's define a function `f` as:
-    -     def f(*args, **kwargs):
-            print 'args: ', args, ' kwargs: ', kwargs
-          
-          >>> f('a')
-          args:  ('a',)  kwargs:  {}
-          >>> f(ar='a')
-          args:  ()  kwargs:  {'ar': 'a'}
-          >>> f(1,2,param=3)
-          args:  (1, 2)  kwargs:  {'param': 3}
-  - For more details about [calls](https://docs.python.org/3/reference/expressions.html#calls)
-
-</details>
-
-<details>
 <summary>Thread</summary>
 
 - Library: threading
@@ -119,6 +78,67 @@
 
 <details>
 <summary>Stack</summary>
+
+</details>
+
+## Oriented Object Programming (OOP):
+
+<details>
+<summary>Class Constructors</summary>
+
+- Have multiple constructors?
+  - Add a tuple of anonymous arguments: #args
+  - Add a dictionary of named arguments: #kwargs
+  - Define `__init__` method as: 
+    -     class MyClass():
+            def __init__(self, *args, **kwargs):
+              default_value = -1
+              self.attr1 = kwargs.get('arg1', default_value)
+              self.attr2 = kwargs.get('arg2', default_value)
+- Instanciate `MyClass` with different arguments:
+    -     c1 = MyClass(arg1=1, arg2=2, arg3=3)
+          print("C1: ", c1) # C1: 1st. attribute is 1 2nd attribute is 2
+          c2 = MyClass(arg2="2")
+          print("C2: ", c2) # C2: 1st. attribute is None 2nd attribute is 2
+  - E.g., 
+    - let's define a function `f` as:
+    -     def f(*args, **kwargs):
+            print 'args: ', args, ' kwargs: ', kwargs
+          
+          >>> f('a')
+          args:  ('a',)  kwargs:  {}
+          >>> f(ar='a')
+          args:  ()  kwargs:  {'ar': 'a'}
+          >>> f(1,2,param=3)
+          args:  (1, 2)  kwargs:  {'param': 3}
+- For more details about [calls](https://docs.python.org/3/reference/expressions.html#calls)
+
+</details>
+
+<details>
+<summary>Object Representation</summary>
+  
+- Define `__repr__` method to represent the class' information
+-     class MyClass():
+            def __init__(self, *args, **kwargs):
+              pass
+
+            def __repr__(self):
+              return (f"1st. attrubute is {self,attr1} "
+                     +f"2nd. attrubute is {self,attr2}")
+
+</details>
+
+<details>
+<summary>Inheritance and Polymormism</summary>
+
+- To create a subclass:
+  ```
+    class SubClass(SuperClass):
+          # data fields
+          # instance methods
+  ```
+
 
 </details>
 

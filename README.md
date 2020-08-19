@@ -165,7 +165,8 @@
         return self.get_a() + self._b + self.c
       
   ```
-  - `isinstance()` method
+
+- `isinstance()` method:
     ```
       obj_a = A(1, 2)
       isinstance(obj_a, A) # True

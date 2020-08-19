@@ -143,7 +143,7 @@
     class A:
       def __init__(self, a, b):
         self.__a = a # __a is private to the class A
-        self._b = b # __a is internal to the class A
+        self._b = b # _b is internal to the class A
 
       def get_a(self):
         return self.__a

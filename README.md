@@ -84,6 +84,30 @@
 ## Oriented Object Programming (OOP):
 
 <details>
+<summary>Lambda function</summary>
+
+- It's an anonymous function
+- It can take any number of arguments, but can only have one expression
+- Its syntax is: `lambda arguments : expression`
+- E.g.1: A lambda function that adds 10 to the number passed in as an argument, and print the result:
+  `x = lambda a : a + 10
+   print(x(5))`
+- E.g.2: A lambda function that is inside an hashmap and do an operation depending on the hashkey:
+  `
+    operators = {
+      "+": lambda a, b: a + b,
+      "-": lambda a, b: a - b,
+      "/": lambda a, b: int(a / b),
+      "*": lambda a, b: a * b
+    }
+
+    print(operators["+"](1, 2)) # returns 3
+
+  `
+
+</details>
+
+<details>
 <summary>Class Constructors</summary>
 
 - Have multiple constructors?

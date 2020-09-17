@@ -32,13 +32,73 @@
 </details>
 
 <details>
-<summary>Thread</summary>
+<summary>Lambda function</summary>
 
-- Library: threading
-- Launch a new thread:
-  -     threading.Thread(target=worker).start()
-- Set the size of the thread stack:
-  -     threading.stack_size(2**27)
+- It's an anonymous function
+- It can take any number of arguments, but can only have one expression
+- Its syntax is: `lambda arguments : expression`
+- E.g.1: A lambda function that adds 10 to the number passed in as an argument, and print the result:
+  `x = lambda a : a + 10
+   print(x(5))`
+- E.g.2: A lambda function that is inside an hashmap and do an operation depending on the hashkey:
+  `
+    operators = {
+      "+": lambda a, b: a + b,
+      "-": lambda a, b: a - b,
+      "/": lambda a, b: int(a / b),
+      "*": lambda a, b: a * b
+    }
+
+    print(operators["+"](1, 2)) # returns 3
+
+  `
+
+</details>
+
+<details>
+<summary>GIL, Threads and Processes</summary>
+
+- **GIL** (**Global Interpreter Lock**): 
+  - In CPython, it's a mutex that protects accss to Python objects
+  - It prevents multiple threads from executing Python bytecodes at once
+  - It's necessary because CPython's memory management is not thread-safe 
+  - In fact, CPython counts the number of references that are pointing to an object
+  - It frees memory allocated to an object only when count == 0
+- Multi-threading:
+  - Multiple threads could be created but only once will be run at a time
+  - Library: `threading`
+  - Launch a new thread: `threading.Thread(target=worker).start()`
+  - Set the size of the thread stack: `threading.stack_size(2**27)`
+- Multi-processing:
+  - To use a multi-processing approach: you use multiple processes instead of threads
+  - Each Python process gets its own Python interpreter and memory space so the GIL won’t be a problem 
+  - Library: `from multiprocessing import Pool`
+  - Launch a new process pool: `pool = Pool(processes = 2)`
+  - Launch a new process: `pool.apply_async(funct,arguments)`
+  - Example:
+  `
+  from multiprocessing import Pool
+  import time
+
+  COUNT = 50000000
+  def countdown(n):
+      while n>0:
+          n -= 1
+
+  if __name__ == '__main__':
+      pool = Pool(processes=2)
+      start = time.time()
+      r1 = pool.apply_async(countdown, [COUNT//2])
+      r2 = pool.apply_async(countdown, [COUNT//2])
+      pool.close()
+      pool.join()
+      end = time.time()
+      print('Time taken in seconds -', end - start)
+  `
+- For more details:
+  - [What is the Python Global Interpreter Lock (GIL)](https://realpython.com/python-gil/)
+
+
 
 </details>
 
@@ -83,29 +143,7 @@
 
 ## Oriented Object Programming (OOP):
 
-<details>
-<summary>Lambda function</summary>
 
-- It's an anonymous function
-- It can take any number of arguments, but can only have one expression
-- Its syntax is: `lambda arguments : expression`
-- E.g.1: A lambda function that adds 10 to the number passed in as an argument, and print the result:
-  `x = lambda a : a + 10
-   print(x(5))`
-- E.g.2: A lambda function that is inside an hashmap and do an operation depending on the hashkey:
-  `
-    operators = {
-      "+": lambda a, b: a + b,
-      "-": lambda a, b: a - b,
-      "/": lambda a, b: int(a / b),
-      "*": lambda a, b: a * b
-    }
-
-    print(operators["+"](1, 2)) # returns 3
-
-  `
-
-</details>
 
 <details>
 <summary>Class Constructors</summary>

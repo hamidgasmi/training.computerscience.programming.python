@@ -19,43 +19,6 @@
 </details>
 
 <details>
-<summary>Recursion</summary>
-
-- Recursion depth default limit is rather low
-- To raise it: `sys.setrecursionlimit(10**7)`
-- To take advantage of bigger stack, we have to launch a new thread (see thread)
-- Python doesn't support **tail-call optimization**
-- For more details:
-    - Python doc [Set Recusion Limit](https://docs.python.org/3.7/library/sys.html#sys.getrecursionlimit)
-    - [Tail Recursion](https://chrispenner.ca/posts/python-tail-recursion)
-
-</details>
-
-<details>
-<summary>Lambda function</summary>
-
-- It's an anonymous function
-- It can take any number of arguments, but can only have one expression
-- Its syntax is: `lambda arguments : expression`
-- E.g.1: A lambda function that adds 10 to the number passed in as an argument, and print the result:
-  `x = lambda a : a + 10
-   print(x(5))`
-- E.g.2: A lambda function that is inside an hashmap and do an operation depending on the hashkey:
-  `
-    operators = {
-      "+": lambda a, b: a + b,
-      "-": lambda a, b: a - b,
-      "/": lambda a, b: int(a / b),
-      "*": lambda a, b: a * b
-    }
-
-    print(operators["+"](1, 2)) # returns 3
-
-  `
-
-</details>
-
-<details>
 <summary>GIL, Threads and Processes</summary>
 
 - **GIL** (**Global Interpreter Lock**): 
@@ -64,12 +27,12 @@
   - It's necessary because CPython's memory management is not thread-safe 
   - In fact, CPython counts the number of references that are pointing to an object
   - It frees memory allocated to an object only when count == 0
-- Multi-threading:
+- **Multi-threading**:
   - Multiple threads could be created but only once will be run at a time
   - Library: `threading`
   - Launch a new thread: `threading.Thread(target=worker).start()`
   - Set the size of the thread stack: `threading.stack_size(2**27)`
-- Multi-processing:
+- **Multi-processing**:
   - To use a multi-processing approach: you use multiple processes instead of threads
   - Each Python process gets its own Python interpreter and memory space so the GIL won’t be a problem 
   - Library: `from multiprocessing import Pool`
@@ -97,8 +60,6 @@
   `
 - For more details:
   - [What is the Python Global Interpreter Lock (GIL)](https://realpython.com/python-gil/)
-
-
 
 </details>
 
@@ -141,9 +102,168 @@
 
 </details>
 
+
+## Function and modularization:
+
+<details>
+<summary>Recursion</summary>
+
+- Recursion depth default limit is rather low
+- To raise it: `sys.setrecursionlimit(10**7)`
+- To take advantage of bigger stack, we have to launch a new thread (see thread)
+- Python doesn't support **tail-call optimization**
+- For more details:
+    - Python doc [Set Recusion Limit](https://docs.python.org/3.7/library/sys.html#sys.getrecursionlimit)
+    - [Tail Recursion](https://chrispenner.ca/posts/python-tail-recursion)
+
+</details>
+
+<details>
+<summary>Function inside a function</summary>
+
+- For example:
+  - Definition:
+    `
+    def f():
+
+      def g():
+        print("Hi, it's me 'g'")
+        print("Thanks for calling me")
+          
+      print("This is the function 'f'")
+      print("I am calling 'g' now:")
+      g()
+        
+    f()
+    `
+  - Output:
+    `
+    This is the function 'f'
+    I am calling 'g' now:
+    Hi, it's me 'g'
+    Thanks for calling me
+    `
+
+</details>
+
+<details>
+<summary>Function as a parameter</summary>
+
+- For example:
+  - Definition:
+    `
+    def g():
+      print("Hi, it's me 'g'")
+      print("Thanks for calling me")
+
+    def f(func):
+      print("This is the function 'f'")
+      print("I am calling 'func' now:")
+      func()
+        
+    f(g)
+    `
+  - Output:
+    `
+    This is the function 'f'
+    I am calling 'func' now:
+    Hi, it's me 'g'
+    Thanks for calling me
+    `
+
+</details>
+
+<details>
+<summary>Functions returning Functions</summary>
+
+- Functions are considered as objects
+- Therefore they can return references to function objects
+- Example:
+  - Definition:
+    `
+    def f(x):
+    def g(y):
+        return y + x + 3 
+    return g
+
+    nf1 = f(1)
+    nf2 = f(3)
+
+    print(nf1(1))
+    print(nf2(1))
+    `
+  
+  - Output:
+  `
+  5
+  7
+  `
+
+</details>
+
+<details>
+<summary>Function Decorators</summary>
+
+- It's any callable object that is used to modify a function
+- A reference to a function (let say `func`) is passed to a decorator
+- The decorator returns a modified function
+- The modified function usually contain calls to the original function, `func`
+- It's used for example in `memoization`
+- Example:
+  ```
+  def memoize(f):
+      memo = {}
+      def helper(x):
+          if x not in memo:            
+              memo[x] = f(x)
+          return memo[x]
+      return helper
+  
+  def fib(n):
+      if n == 0:
+          return 0
+      elif n == 1:
+          return 1
+      else:
+          return fib(n-1) + fib(n-2)
+
+  fib = memoize(fib)
+
+  print(fib(40))
+  ```
+
+- For more details:
+  - [Function decorators](https://www.python-course.eu/python3_decorators.php)
+  - [Memoization with Function Decorators](https://www.python-course.eu/python3_memoization.php)
+
+</details>
+
+<details>
+<summary>Lambda function</summary>
+
+- It's an anonymous function
+- It can take any number of arguments, but can only have one expression
+- Its syntax is: `lambda arguments : expression`
+- E.g.1: A lambda function that adds 10 to the number passed in as an argument, and print the result:
+  `x = lambda a : a + 10
+   print(x(5))`
+- E.g.2: A lambda function that is inside an hashmap and do an operation depending on the hashkey:
+  `
+    operators = {
+      "+": lambda a, b: a + b,
+      "-": lambda a, b: a - b,
+      "/": lambda a, b: int(a / b),
+      "*": lambda a, b: a * b
+    }
+
+    print(operators["+"](1, 2)) # returns 3
+
+  `
+
+</details>
+
+
 ## Oriented Object Programming (OOP):
-
-
 
 <details>
 <summary>Class Constructors</summary>
@@ -242,6 +362,13 @@
 
 <details>
 <summary>Interface</summary>
+
+</details>
+
+## OOP: Design Patterns:
+
+<details>
+<summary>Decorator Pattern</summary>
 
 </details>
 
